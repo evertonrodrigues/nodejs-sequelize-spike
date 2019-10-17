@@ -1,4 +1,4 @@
-#Nodejs Sequelize Spike
+# Nodejs Sequelize Spike
 
 Project to study Nodejs with Sequilze
 
