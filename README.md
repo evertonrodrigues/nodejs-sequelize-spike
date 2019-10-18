@@ -11,9 +11,9 @@ docker pull dpage/pgadmin4
 
 docker network create --driver bridge postgres-network
 
-docker run --name my-pgadmin --network=postgres-network -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=everttonrodrigues@gmail.com" -e "PGADMIN_DEFAULT_PASSWORD=postgres" -d dpage/pgadmin4
+docker run --name my-postgres -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -v /home/everton/dev/tools/volume-pg:/var/lib/postgresql/data -d postgres
 
-docker run --name my-postgres -e "POSTGRES_PASSWORD=postgres" -e "POSTGRES_USER=postgres" -p 5432:5432 -v /home/everton/dev/tools/volume-pg:/var/lib/postgresql/data -d postgres
+docker run --name my-pgadmin --network=postgres-network -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=postgres" -e "PGADMIN_DEFAULT_PASSWORD=postgres" -d dpage/pgadmin4
 
 ```    
 
